@@ -9,10 +9,10 @@ import {TaskService} from './service/task.service';
 export class AppComponent {
   title = 'Module1';
   addTaskColor = 'black';
-  cursor= 'auto';
+  cursor = 'auto';
 
-  constructor(private taskService: TaskService) {
-    console.log(taskService.test);
+  constructor(public taskService: TaskService) {
+    //console.log(taskService.test);
   }
 
   changeColor(): void{
