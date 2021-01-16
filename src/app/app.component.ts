@@ -7,18 +7,8 @@ import {TaskService} from './service/task.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Module1';
-  addTaskColor = 'black';
-  cursor = 'auto';
 
-  constructor(public taskService: TaskService) {
-    //console.log(taskService.test);
-  }
 
-  changeColor(): void{
-    this.addTaskColor = (  (this.addTaskColor === 'red') ? 'black' : 'red');
-    this.cursor = (  (this.cursor === 'auto') ? 'pointer' : 'auto');
 
-  }
 
 }
