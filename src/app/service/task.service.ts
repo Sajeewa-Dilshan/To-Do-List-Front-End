@@ -5,6 +5,8 @@ import {Priority} from '../util/priority.enum';
 @Injectable(
   /*{providedIn: 'root'}*/
 )
+
+
 export class TaskService {
 
   taskList: Array<Task> = [];
