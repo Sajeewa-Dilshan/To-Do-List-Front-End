@@ -1,1 +1,27 @@
-<p>sign-in works!</p>
+<div class="container">
+  <h1>To Do List App</h1>
+  <p>
+    Welcome to To Do list App<br>
+    Please enter your login credentials to sign in.
+  </p>
+
+  <form #frm="ngForm" >
+  <div class="form-group" >
+  <label  >Username</label>
+    <input #txtUsername  [(ngModel)]="username" name="txt-username" id="txt-username" type="text" placeholder="Type the username" >
+  </div>
+    <div class="form-group">
+   <label  >Password</label>
+   <input #txtPassword [(ngModel)]="password" #passwordModel="ngModel"  name="txt-password" id="txt-password" type="text" class="txt-password" placeholder="Type the password" >
+
+    </div>
+<div class="form-group">
+  <button class="sign-in">Sign in</button>
+
+</div>
+
+
+  </form>
+  <small>New user? <a routerLink="/sign-up" >Sign Up</a></small>
+
+</div>

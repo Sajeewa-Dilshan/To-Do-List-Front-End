@@ -9,6 +9,7 @@ import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { SignInComponent } from './view/sign-in/sign-in.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { MainComponent } from './view/main/main.component';
+import {FormsModule} from '@angular/forms';
 
 const routes : Routes=[
   {
@@ -20,6 +21,14 @@ const routes : Routes=[
     path: 'main',
     component: MainComponent,
 
+  },{
+    component: WelcomeComponent,
+    path: 'welcome'},
+  {component:SignInComponent,
+  path: 'sign-in'},
+  {
+    component:SignUpComponent,
+    path:'sign-up'
   }
 ]
 
@@ -34,7 +43,9 @@ const routes : Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
+
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]
