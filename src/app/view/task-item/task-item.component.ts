@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Task } from 'src/app/model/task';
+import {Status} from '../../util/status.enum';
+
 
 @Component({
   selector: 'app-task-item',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskItemComponent implements OnInit {
 
+  Status=Status;
+
+  @Input()
+  task!: Task;
+  @Output()
+  edit= new EventEmitter();
+
   constructor() { }
 
-  ngOnInit(): void {
+
+ngOnInit(): void {
   }
 
+  editTask(eventData: MouseEvent):void{
+    this.edit.emit(this.task);
+    eventData.stopImmediatePropagation();
+
+
+  }
 }

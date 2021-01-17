@@ -1,0 +1,49 @@
+.task {
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgrey;
+
+  span.check{
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-flex;
+    position: relative;
+    top: 5px;
+    border: 1px solid lightgrey;
+  }
+
+  font-size: 14px;
+
+  &:hover{
+    color: red;
+
+    span.check svg{
+      visibility: visible;
+    }
+  }
+}
+
+.hide{
+  visibility: hidden;
+}
+
+.completed{
+  text-decoration: line-through;
+  color: green;
+}
+
+.options{
+  margin-top: 5px;
+  float: right;
+
+  .option-item{
+    padding: 0 5px;
+    display: inline-flex;
+    padding: 2px;
+
+    &:hover{
+      background: lightgray;
+    }
+  }
+}
