@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TaskService} from '../../service/task.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(public taskService: TaskService) {
+  constructor(public taskService: TaskService,private  router: Router) {
     //console.log(taskService.test);
   }
 
@@ -22,6 +23,12 @@ export class MainComponent implements OnInit {
     this.addTaskColor = (  (this.addTaskColor === 'red') ? 'black' : 'red');
     this.cursor = (  (this.cursor === 'auto') ? 'pointer' : 'auto');
 
+  }
+
+  signOut():void{
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('uname');
+    this.router.navigateByUrl("/welcome");
   }
 
 }

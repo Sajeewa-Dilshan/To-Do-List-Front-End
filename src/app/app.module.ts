@@ -10,6 +10,7 @@ import { SignInComponent } from './view/sign-in/sign-in.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { MainComponent } from './view/main/main.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes : Routes=[
   {
@@ -44,7 +45,8 @@ const routes : Routes=[
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [TaskService],

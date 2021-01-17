@@ -5,18 +5,22 @@
     Please enter your login credentials to sign in.
   </p>
 
-  <form #frm="ngForm" >
+  <form #frm="ngForm" (ngSubmit)="authenticate()" >
   <div class="form-group" >
   <label  >Username</label>
-    <input #txtUsername  [(ngModel)]="username" name="txt-username" id="txt-username" type="text" placeholder="Type the username" >
+    <input #txtUsername required minlength="3" pattern="[A-Za-z]+"  #usernameModel="ngModel" [(ngModel)]="username" name="txt-username" id="txt-username" type="text" placeholder="Type the username" >
+
+    <small [style.color]="'red'" *ngIf="usernameModel.invalid && usernameModel.dirty" >please enter a username with 3 letters</small>
+    <small [style.color]="'red'" *ngIf="usernameModel.hasError('pattern') && usernameModel.dirty" >please enter letters only</small>
   </div>
     <div class="form-group">
    <label  >Password</label>
-   <input #txtPassword [(ngModel)]="password" #passwordModel="ngModel"  name="txt-password" id="txt-password" type="text" class="txt-password" placeholder="Type the password" >
+   <input #txtPassword required minlength="3"  [(ngModel)]="password" #passwordModel="ngModel"  name="txt-password" id="txt-password" type="text" class="txt-password" placeholder="Type the password" >
 
+      <small [style.color]="'red'" *ngIf="passwordModel.invalid && passwordModel.dirty"  >password should be more than 3 letters</small>
     </div>
 <div class="form-group">
-  <button class="sign-in">Sign in</button>
+  <button [disabled]="frm.invalid"  class="sign-in">Sign in</button>
 
 </div>
 
@@ -25,3 +29,4 @@
   <small>New user? <a routerLink="/sign-up" >Sign Up</a></small>
 
 </div>
+

@@ -1,1 +1,35 @@
-<p>sign-up works!</p>
+<div class="container" >
+  <h1>To Do List App</h1>
+  <p>
+    Welcome to To Do List App<br>
+    Please enter following details to create a new account.
+  </p>
+
+  <form #frm="ngForm" >
+
+
+    <div class="form-group" >
+      <label for="txt-username"></label>
+      <input name="username" #usernameModel="ngModel" [(ngModel)]="username"   #txt placeholder="Enter username" required minlength="3" pattern="[A-Za-z]+"  #txtUsername id="txt-username" type="text"  >
+      <small [style.color]="'red'" *ngIf="usernameModel.invalid&&usernameModel.dirty" > Please enter more than 3 letters</small>
+    </div>
+
+  <div class="form-group">
+    <label for="txt-password" > Password</label>
+    <input #txtPassword #passwordModule="ngModel" minlength="3" required type="text" id="txt-password" name="password" [(ngModel)]="password" >
+    <small [style.color]="'red'"   *ngIf="passwordModule.invalid && passwordModule.dirty"> please enter more than 3 letters </small>
+  </div>
+
+    <div class="form-group">
+      <button [disabled]="frm.invalid"  class="sign-up" (click)="createAccount()" >Register Me</button>
+
+    </div>
+
+  </form>
+
+
+
+</div>
+
+
+
