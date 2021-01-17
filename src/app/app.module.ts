@@ -11,6 +11,7 @@ import { NotFoundComponent } from './view/not-found/not-found.component';
 import { MainComponent } from './view/main/main.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { TaskItemComponent } from './view/task-item/task-item.component';
 
 const routes : Routes=[
   {
@@ -40,7 +41,8 @@ const routes : Routes=[
     SignUpComponent,
     SignInComponent,
     NotFoundComponent,
-    MainComponent
+    MainComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserModule,
