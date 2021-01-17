@@ -12,6 +12,7 @@ import { MainComponent } from './view/main/main.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { TaskItemComponent } from './view/task-item/task-item.component';
+import { TaskEditorComponent } from './view/task-editor/task-editor.component';
 
 const routes : Routes=[
   {
@@ -42,7 +43,8 @@ const routes : Routes=[
     SignInComponent,
     NotFoundComponent,
     MainComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    TaskEditorComponent
   ],
   imports: [
     BrowserModule,
