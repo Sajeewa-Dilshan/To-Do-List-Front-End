@@ -1,5 +1,5 @@
-<from class="container" (ngSubmit)>
-  <input (input)=""  >
-  <button></button>
-  <span></span>
+<from class="container" (ngSubmit)="update.emit(txt.value)">
+  <input (input)="taskTextChange.emit(taskText)" name="txt-task"  #txt required minlength="1" [(ngModel)]="taskText" type="text" #txtTask="ngModel"  >
+  <button [disabled]="txtTask.invalid"  >{{newTask?'AddTask':'Save'}}</button>
+  <span (click)="cancel.emit('')" >Cancel</span>
 </from>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TaskService} from '../../service/task.service';
 import {Router} from '@angular/router';
+import {Task} from '../../model/task';
+import {Status} from '../../util/status.enum';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +14,16 @@ export class MainComponent implements OnInit {
   addTaskColor = 'black';
   cursor = 'auto';
 
+  taskList: Array<Task>=[];
+  Status=Status;
+  visibleTaskEditor=false;
+  currentTask:Task|null=null;
+
+
   ngOnInit(): void {
+    this.taskService.getAllTasks().subscribe(list=>{this.taskList=list;},error=>{
+      this.router.navigateByUrl('/sign-in');
+    });
   }
 
   constructor(public taskService: TaskService,private  router: Router) {
@@ -28,7 +39,18 @@ export class MainComponent implements OnInit {
   signOut():void{
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('uname');
-    this.router.navigateByUrl("/welcome");
+    this.router.navigateByUrl('/welcome');
   }
 
+
+  editTask(task: Task){
+    this.currentTask=task;
+    this.visibleTaskEditor=true;
+  }
+
+
+  addNewTask(taskDescription: String) {
+    this.taskService.saveTask()
+
+  }
 }
