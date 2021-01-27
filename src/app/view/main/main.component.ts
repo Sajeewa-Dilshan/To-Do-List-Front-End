@@ -3,6 +3,7 @@ import {TaskService} from '../../service/task.service';
 import {Router} from '@angular/router';
 import {Task} from '../../model/task';
 import {Status} from '../../util/status.enum';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-main',
@@ -49,8 +50,17 @@ export class MainComponent implements OnInit {
   }
 
 
-  addNewTask(taskDescription: String) {
-    this.taskService.saveTask()
+  addNewTask(taskDescription: string) {
+    this.taskService.saveTask(taskDescription).subscribe(task=>{
+      this.taskList.push(task);
+      this.visibleTaskEditor=false;
+    },error=>{
+      if(error instanceof HttpErrorResponse ){
+        alert("Please try again something went wrong");
+      }else{
+        this.router.navigateByUrl('/sign-in');
+      }
+    });
 
   }
 }

@@ -10,7 +10,9 @@
 
     <div class="form-group" >
       <label for="txt-username"></label>
-      <input name="username" #usernameModel="ngModel" [(ngModel)]="username"   #txt placeholder="Enter username" required minlength="3" pattern="[A-Za-z]+"  #txtUsername id="txt-username" type="text"  >
+      <input (input)="findUser()"  name="username" #usernameModel="ngModel" [(ngModel)]="username"   #txt placeholder="Enter username" required minlength="3" pattern="[A-Za-z]+"  #txtUsername id="txt-username" type="text"  >
+      <small [style.color]="'red'" *ngIf="userExist">Username is already taken</small>
+
       <small [style.color]="'red'" *ngIf="usernameModel.invalid&&usernameModel.dirty" > Please enter more than 3 letters</small>
     </div>
 

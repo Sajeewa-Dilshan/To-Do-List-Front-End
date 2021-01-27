@@ -10,6 +10,7 @@ import {Router, Routes} from '@angular/router';
 export class SignUpComponent implements OnInit {
   username: any;
   password: any;
+  userExist=false;
 
   constructor(private  userService:UserService,private router: Router) {
 
@@ -24,16 +25,20 @@ export class SignUpComponent implements OnInit {
       },error => {
       if(error.status===400){
           console.log("error success");
-
       }else{
-
         console.log("error failed");
-
       }
       }
-
     );
+  }
 
 
+  findUser():void {
+
+    this.userService.findUser(this.username).subscribe(value => {
+      this.userExist=true;
+    },error => {
+      this.userExist=false;
+    });
   }
 }
