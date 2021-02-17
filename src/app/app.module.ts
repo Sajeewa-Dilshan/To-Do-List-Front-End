@@ -27,8 +27,10 @@ const routes : Routes=[
   },{
     component: WelcomeComponent,
     path: 'welcome'},
+
   {component:SignInComponent,
   path: 'sign-in'},
+
   {
     component:SignUpComponent,
     path:'sign-up'

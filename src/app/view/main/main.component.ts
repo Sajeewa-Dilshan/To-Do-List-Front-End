@@ -22,9 +22,9 @@ export class MainComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.taskService.getAllTasks().subscribe(list=>{this.taskList=list;},error=>{
-      this.router.navigateByUrl('/sign-in');
-    });
+    // this.taskService.getAllTasks().subscribe(list=>{this.taskList=list;},error=>{
+    //   this.router.navigateByUrl('/sign-in');
+    // });
   }
 
   constructor(public taskService: TaskService,private  router: Router) {

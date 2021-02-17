@@ -1,11 +1,11 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-task-editor',
   templateUrl: './task-editor.component.html',
   styleUrls: ['./task-editor.component.scss']
 })
-export class TaskEditorComponent implements OnInit {
+export class TaskEditorComponent implements OnInit,AfterViewInit {
 
   @Output()
   cancel=new EventEmitter();

@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit {
 
   createAccount():void{
     this.userService.createAccount(this.username,this.password).subscribe(value => {
+     alert("Account was Crreated");
       this.router.navigateByUrl("/sign-in");
       },error => {
       if(error.status===400){

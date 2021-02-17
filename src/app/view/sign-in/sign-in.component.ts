@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../service/user.service';
 import {NgForm} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,7 @@ export class SignInComponent implements OnInit {
   frmSignIn!:NgForm;
 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private  router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,7 @@ export class SignInComponent implements OnInit {
     this.userService.authenticate(this.username,this.password).subscribe(token=>{
       sessionStorage.setItem('token',token);
       sessionStorage.setItem('uname',this.username);
+      this.router.navigateByUrl("/main");
 
     },error => {
       this.username='';
